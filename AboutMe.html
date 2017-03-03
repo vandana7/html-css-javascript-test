@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel = "stylesheet" href = "bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <link rel="stylesheet" href="AboutMe.css">
+    <title>About Me</title>
+  </head>
+  <body>
+    <!-- First Container -->
+<div class="container-fluid bg-1 text-center">
+
+  <img src="person.jpg" class="img-responsive img-circle margin" style="display:inline" alt="img" width="350" height="350">
+  <h3 class="margin">Who Am I?</h3>
+    <form class="inline-form ">
+      <!-- <div class="form">
+
+    <center><input type="text" class="form-control" id="usr" style="width:300px"><center>
+    </div> -->
+  <div class="form"id="beforeHit">
+      <button type="button" class="btn btn-primary" id="get">GET</button>
+  </div>
+  </form>
+
+<!-- --div to be replaced with user info----- -->
+
+
+<div class="container-fluid"id="afterHit">
+  <h3>Hello</h3>
+        <p class="col-xs-12" id="user-name"></p><br>
+        <p class="col-xs-12" id="user-description"></p><br>
+</div>
+</div>
+<!-- Navbar -->
+<nav class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- <a class="navbar-brand" href="#"><img class="logo" src="logo.jpg" alt=" company logo" ></a> -->
+            </div>
+            <div class="collapse navbar-collapse" id="collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="http://google.com" target="ext">Try Api here</a></li>
+                      <li><a href="#MySkill">My Skills</a></li>
+                      <li><a href="#Contact">Contact</a></li>
+                      <li><a href="#MyPassion">My Passion</a></li>
+                      <li><a href="#AboutMe">About Me</a></li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <!-- Second Container (Grid) -->
+<div class="container-fluid bg-3 text-center">
+  <h1 class="margin" id="AboutMe">About Me</h1><br>
+
+  <div class="row">
+    <div class="col-sm-4">
+
+      <img src="person.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+    </div>
+    <div class="col-sm-6">
+      <h2 id="MyPassion">My Passion</h2><br>
+        <p>My Passion were an English band formed in Hitchin, Hertfordshire, England in 2005.
+         They released their debut album, Corporate Flesh Party, in May 2009 on Cool Green Recordings.
+          Produced by John Mitchell at Outhouse Studios in Reading,[1] the album features eleven tracks,
+           six of which are re-released versions of older demos either presented only on the band's MySpace,
+            or released on their Style Suicide record label.</p>
+
+            <p>My Passion were an English band formed in Hitchin, Hertfordshire, England in 2005.
+             They released their debut album, Corporate Flesh Party, in May 2009 on Cool Green Recordings.
+            Produced by John Mitchell at Outhouse Studios in Reading,[1] the album features eleven tracks,
+           six of which are re-released versions of older demos either presented only on the band's MySpace,
+            or released on their Style Suicide record label.</p>
+            <ul>
+              <li>My Passion were an English band formed in Hitchin.</li>
+              <li>My Passion were an English band formed in Hitchin.</li>
+              <li>My Passion were an English band formed in Hitchin.</li>
+              <li>My Passion were an English band formed in Hitchin.</li>
+            </ul>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- Third Container (Grid) -->
+<div class="container-fluid bg-2">
+<div class="row">
+  <div class="col-sm-12">
+
+  <h2 class="skill text-center" id="MySkill">MY SKILLS</h2>
+
+      <ul>
+          <li>learner</li>
+          <li>Problem Solving</li>
+          <li>Collaboration</li>
+          <li>Critical Thinking</li>
+          <li>Time Management</li>
+          <li>Creativity</li>
+        <li>Adaptability</li>
+        <li>Leadership</li>
+        <li>Self Confidence</li>
+        </ul>
+
+
+  </div>
+</div>
+</div>
+
+<!-- -----fourth container-fluid---- -->
+<div class="container-fluid bg-1">
+<div class="row">
+  <div class="col-sm-12">
+
+  <h2 class="skill text-center" id="Contact">Contact</h2>
+
+      <ul>
+          <li>phone No:9877443</li>
+          <li>email:abc@gmail.com</li>
+          <li>linkedIn:xyz@linkedIn.com</li>
+
+        </ul>
+
+
+  </div>
+</div>
+</div>
+
+<!-- ------scripts included---------- -->
+<script>
+  $(document).ready(function(){
+  $("#get").click(function(){
+
+      $.ajax({
+
+        url:"https://public-api.wordpress.com/rest/v1/sites/dotnetask.wordpress.com",
+        success: function(data){
+
+          $("#user-name").html(" I am "+data.name);
+          $("#user-description").html(data.description);
+
+
+        }
+      });
+
+  });
+//   function animateLeft($src, $tgt){
+//     var $parent = $src.parent();
+//     var width = $parent.width();
+//     var srcWidth = $src.width();
+//
+//     $src.css({position: 'absolute'});
+//     $tgt.hide().appendTo($parent).css({left: width, position: 'absolute'});
+//
+//     $src.animate({left : -width}, 500, function(){
+//         $src.hide();
+//         $src.css({left: null, position: null});
+//     });
+//     $tgt.show().animate({left: 0}, 500, function(){
+//         $tgt.css({left: null, position: null});
+//     });
+// }
+//
+// $(function(){
+//     var $first = $("#beforeHit");
+//     var $second = $("#afterHit");
+//
+//     $second.hide();
+//
+//
+    $("#get").click(function(){
+//         animateLeft($first, $second);
+//         var tmp = $first;
+//         $first = $second;
+//         $second = tmp;
+       alert("you got me :P")
+//     });
+ });
+ });
+
+
+      </script>
+  </body>
+</html>
